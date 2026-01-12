@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="UTF-8">
+<title>महिला एवं बाल सुरक्षा</title>
+<style>
+
+ 
+.header{
+    background:#4a148c;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    padding:10px 15px;
+    
+  }
+  #container{
+     display:flex;
+     flex-direction:column;
+     justify-content:center;
+      text-align:center;
+     width: 250px;
+      margin:50px auto;
+      border-radius:20px;
+      padding:20px;
+      background:#ffab91;
+      
+      }
+    h2,p{
+      color:white;
+      text-align:center;
+      }
+    label{
+      color:white;
+      font-weight:bold;
+        
+      }
+      .main{
+       background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEk-SWdXx8ooXOFNiCfzOPdfbWjHBhfPHcpw&s");
+       
+      height:90vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        }
+        .result2{
+      width:100%;
+      background:#6a1b9a;
+      color:white;
+      padding:12px;
+      font-size:16px;
+      border:none;
+      cursor: pointer;
+      margin-top:15px;
+      border-radius:20px;
+      
+    }
+    input{
+      width:100%;
+      padding:5px;
+      display:flex;
+      margin-top:5px;
+      border-radius:20px;
+      border:none;
+      margin-right:5px;
+    }
+    #result{
+      width: 280px;
+      background: #1a1026;
+      color:#f2f2f2;
+      border: 2px solid #ff9bbd;
+      margin-top:20px;
+      padding:15px;
+      border-radius:15px;
+     
+    }
+    .home2{
+      background:#7B2CBF;
+      color:white;
+      padding:8px 18px;
+      border-radius:20px;
+      border:none;
+      font-weight:bold;
+      cursor:pointer;
+      }
+      .home2:hover{
+        background:#5A189A;
+      } 
+    .home{
+      background:#7B2CBF;
+      color:white;
+      padding:8px 18px;
+      border-radius:20px;
+      border:none;
+      font-weight:bold;
+      cursor:pointer;
+      }
+     .home1{
+        background: #E63946;
+        color: white;
+        font-weight: bold;
+        border-radius: 25px;
+        padding: 8px 18px;
+        border: none;
+        cursor: pointer;
+      }
+      .home:hover{
+        background: #5A189A;
+      }
+      .home1:hover{
+        background: #5A189A;
+      }
+      .all{
+        border: 5px solid #F4A6B8;
+        border-radius: 5px;
+      }
+      
+</style>
+</head>
+<body> 
+<div class="all">
+<div class="header"
+  <button class="home" onclick="goHome()"> HOME</button>
+  <button class="home1" onclick="goHelp()">📞 HELP</button >
+   <button class="home2" onclick="goMe()">ABOUT ME</button>
+   </div>
+ <div class="main"> 
+ <div id="container">
+      <h2>
+      महिला एवं बाल<br> सुरक्षा सहायता पोर्टल
+   </h2>
+   <p>अपने क्षेत्र की सहायता सेवाओं की जानकारी पाएं</p>
+    
+    <label >क्षेत्र / ब्लॉक</label>
+    <input type="text" id="area" placeholder="जैसे: देवबंद, पुंवारका">
+    <button class="result2" onclick="showResult()"> सहायता खोजे </button>
+    </div>
+ <div  id="result" style="display: none;">
+   <p id="resultBox"></p>
+   <div>
+   <button class="result2" id="back" onclick="goBack()">वापस जाएं</button> 
+ </div>
+ </div>
+ </div>
+</div>
+</div>
+
+
+<script>
+function goMe(){
+  document.getElementById("container").style.display="none";
+  let result3 = document.getElementById("resultBox");
+  let hello = document.getElementById("result").style.display="block";
+    result3.innerHTML = `
+    <h3>मेरी जानकारी :<br>👇</h3>
+    <p><b>1. नाम:</b> "Piyush Kumar"</p>
+    <p><b>2. क्लास:</b> "12th" <p/>
+    <p><b>3. प्रोजेक्ट:</b> "महिला एवं बाल सुरक्षा"</p>
+    <p><b>4. टेक्नोलॉजी:</b> "HTML, CSS, JavaScript"</p>
+    `;
+}
+function goHelp(){
+  document.getElementById("container").style.display="none";
+  let result = document.getElementById("resultBox");
+  let result1 = document.getElementById("result").style.display="block";
+ result.innerHTML =`
+  <b><h2>सेवाएं:</h2></b> 
+  <p>👮महिला हेल्पलाइन - 1091</p>
+  <p>🙍चाइल्ड हेल्पलाइन - 1098</p>
+  `;
+  }
+function goHome(){
+  document.getElementById("container").style.display="block";
+ document.getElementById("resultBox").style.display="none";
+  let result2 = document.getElementById("result").style.display="none";
+  let result1 = document.getElementById("container").style.display="block";
+  let result3 = document.getElementById("resultBox").style.display="block";
+}
+function goBack(){
+  
+  document.getElementById("container").style.display="block";
+  document.getElementById("resultBox").style.display="none";
+  let result2 = document.getElementById("result").style.display="none";
+  let result1 = document.getElementById("resultBox").style.display="block";
+} 
+  function showResult(){
+     let area = document.getElementById("area").value.trim().toLowerCase();
+  
+     
+     if(area === ""){
+      alert(" कृपया अपना ब्लॉक का नाम दर्ज करें");
+       return; 
+     }
+     document.getElementById("container").style.display="none";
+     document.getElementById("result").style.display="block";
+     let result = document.getElementById("resultBox");
+     
+     if(area === "सढोली कदीम"){
+       result.innerHTML=`
+      <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+    <p> 1. District: "आगरा",</p>
+    <p> 2. Block: "सढोली कदीम",</p>
+    <p> 3. Name: "बेबी रानी मौर्य",</p>
+    <p> 4. Phone: "0522-2288532",</p>
+    <p> 5. Type: "सरकारी अधिकारी",</p>
+    <p> 6. WA number: "9876543210",</p>
+    <p> 7. Position: "कैबिनेट मंत्री, महिला <br> कल्याण बा उत्तरप्रदेश सरकार"<br></p>  
+    <p> 8. Address: "निदेशालय महिला,<br>
+      कल्याण जवाहर भवन,<br>अशोक मार्ग लखनऊ,<br>उत्तरप्रदेश,<br></p> 
+       `;
+        } 
+            
+      else if (area === "पुंवारका"){
+        result.innerHTML = `
+        <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+        <p>1. District: "अंबेडकर नगर",</p>
+        <p>2. Block: "पुंवारका", </p>
+        <p>3. Name: "सुनीता रानी",</p>
+        <p>4. Phone: "9876543212",</p>
+        <p>5. Type:"सरकारी अधिकारी",</p>
+        <p>6. WA number:"9876543212",</p>
+        <p>7. Position: "आपातकालीन सरकारी अधिकारी",</p>
+        <p>8. Address: "पंचायत भवन,पुंवारका,<br>सहारनपुर"</p> 
+        `;
+      } 
+      else if (area === "बलियाखेड़ी"){
+        result.innerHTML=` 
+        <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+        <p>1. District: "अमेठी",</p>
+        <p>2. Block: "बलियाखेड़ी", </p>
+        <p>3. Name: "राहुल अग्रवाल",</p>
+        <p>4. Phone: "9876543213",</p>
+        <p>5. Type:"सामाजिक कार्यकर्त्ता",</p>
+        <p>6. WA number:"9876543213",</p>
+        <p>7. Position: "सामुदायिक सहयोगी (सामाजिक)",</p>
+        <p>8. Address: "पंचायत भवन,बलियाखेड़ी,<br>सहारनपुर"</p>
+         `;
+      } 
+      else if(area === "नानौता"){
+        result.innerHTML= `
+        <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+        <p>1. District: "अमरोहा",</p>
+        <p>2. Block: "नानौता", </p>
+        <p>3. Name: "रचना पांडे",</p>
+        <p>4. Phone: "9876543214",</p>
+        <p>5. Type:"सरकारी अधिकारी",</p> 
+        <p>6. WA number:"9876543214",</p>
+        <p>7. Position: "महिला प्रतिक्रिया समन्वयक<br>(सरकारी)",</p>
+        <p>8. Address: "तहसील परिसर,नानौता,<br>सहारनपुर"</p>
+          `;
+      }
+      else if(area === "देवबंद"){ 
+        result.innerHTML=`
+        <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+        <p>1. District: "औरैया",</p>
+        <p>2. Block: "देवबंद", </p>
+        <p>3. Name: "निधि टंडन",</p>
+        <p>4. Phone: "9876543215",</p>
+        <p>5. Type:"सरकारी अधिकारी",</p>
+        <p>6. WA number:"9876543215",</p>
+        <p>7. Position: "महिला सुरक्षा अधिकारीbr>(सरकारी)",</p>
+        <p>8. Address: "ब्लॉक ऑफिस,देवबंद,<br>सहारनपुर"</p> 
+        `;
+      }
+      else if(area === "रामपुर"){
+        result.innerHTML= `
+        <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+        <p>1. District: "आजमगढ़",</p>
+        <p>2. Block: "रामपुर", </p>
+        <p>3. Name: "अरुणा ठाकुर",</p>
+        <p>4. Phone: "9876543216",</p>
+        <p>5. Type:"सामाजिक कार्यकर्ता",</p>
+        <p>6. WA number:"9876543216",</p>
+        <p>7. Position: "महिला हेल्पलाइन समन्वयक<br>(सामाजिक)",</p>
+        <p>8. Address: "ग्राम पंचायत कार्यालय,<br>रामपुर मनिहारन,सहारनपुर"</p>
+        `;
+      } 
+      else if(area === "नागल"){
+        result.innerHTML=`
+        <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+        <p>1. District: "बागपत",</p>
+        <p>2. Block: "नागल", </p>
+        <p>3. Name: "श्वेता सक्सेना",</p>
+        <p>4. Phone: "9876543217",</p>
+        <p>5. Type:"NGO,</p>
+        <p>6. WA number:"9876543217",</p>
+        <p>7. Position: "महिला अधिकार कार्यकर्ता<br>(NGO)",</p>
+        <p>8. Address: "ब्लॉक ऑफिस,<br>नागल,सहारनपुर"</p>
+        `;
+        }
+      else if(area === "नकुड"){
+        result.innerHTML=`
+        <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+        <p>1. District: "बहराइच",</p>
+        <p>2. Block: "नकुड", </p>
+        <p>3. Name: "पूजा शर्मा",</p>
+        <p>4. Phone: "9876543218",</p>
+        <p>5. Type:"NGO",</p>
+        <p>6. WA number:"9876543218",</p>
+        <p>7. Position: "महिला सशक्तिकरण कार्यकर्ता<br>(NGO)",</p>
+        <p>8. Address: "पुलिस चौकी,नकुड<br>,सहारनपुर"</p>
+        `;
+      } 
+      else if(area === "सरसांवा"){
+        result.innerHTML=`
+        <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+        <p>1. District: "बलिया",</p>
+        <p>2. Block: "सरसांवा", </p>
+        <p>3. Name: "अनिल यादव",</p>
+        <p>4. Phone: "9876543219",</p>
+        <p>5. Type:"सरकारी अधिकारी",</p>
+        <p>6. WA number:"9876543219",</p>
+        <p>7. Position: "जिला सुरक्षा अधिकारी,<br>(सरकारी)",</p>
+        <p>8. Address: "ब्लॉक ऑफिस, सरसांवा,<br>सहारनपुर"</p>
+        `;
+      }  
+    else if (area === "गंगोह"){
+      result.innerHTML=`
+      <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+      <p>1. District: "बलरामपुर",</p>
+      <p>2. Block: "गंगोह", </p>
+      <p>3. Name: "रितेश सिंह",</p>
+      <p>4. Phone: "9876543220",</p>
+      <p>5. Type:"NGO",</p>
+      <p>6. WA number:"9876543220",</p>
+      <p>7. Position: "सामाजिक कार्यकर्ता(NGO)",</p>
+      <p>8. Address: "तहसील परिसर,गंगोह<br>,सहारनपुर"</p>
+      `;
+    }
+    else if(area === "सहारनपुर"){
+      result.innerHTML=`
+      <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+      <p>1. District: "बांदा",</p>
+      <p>2. Block: "सहारनपुर", </p>
+      <p>3. Name: "राजीव चौधरी",</p>
+      <p>4. Phone: "9876543221",</p>
+      <p>5. Type:"सरकारी अधिकारी",</p>
+      <p>6. WA number:"9876543221",</p>
+      <p>7. Position: "जिला संरक्षण अधिकारी(सरकारी)",</p>
+      <p>7. Position: "जिला संरक्षण अधिकारी(सरकारी)",</p>
+      <p>8. Address: "जिला कार्यालय,सहारनपुर"</p>  
+      `;
+    }
+    else if(area === "मुजफ्फराबाद"){
+      result.innerHTML=`
+      <b><h2>उपलब्ध सहायता सेवाएं:</h2></b>
+      <p>1. District: "अलीगढ़",</p>
+      <p>2. Block: "मुजफ्फराबाद", </p>
+      <p>3. Name: "श्रीमती प्रतिभा शुक्ला",</p>
+      <p>4. Phone: "9876543211",</p>
+      <p>5. Type:"सरकारी अधिकारी",</p>
+      <p>6. WA number:"9876543211",</p>
+      <p>7. Position: "राज्य मंत्री",</p>
+      <p>8. Address: "ग्राम पंचायत कार्यालय,<br>मुजफ्फराबाद,सहारनपुर"</p>  
+     `;
+    }  
+    else{
+      result.innerHTML=`
+      <b>क्षमा करें!</b><br>
+      इस ब्लॉक की जानकरी उपलब्ध नहीं है।         
+      `;
+    }
+  }
+     
+</script>
+</body>
+</html>
